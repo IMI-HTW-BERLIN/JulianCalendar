@@ -1,6 +1,6 @@
 public class JulianDate {
 
-    private final float daysPerYear = 365.2563604167F, daysPerMonth = 30.4380300347F;
+    //private final float daysPerYear = 365.2563604167F, daysPerMonth = 30.4380300347F;
     private long julianDate;
     //private float julianDateF;
 
@@ -67,10 +67,10 @@ public class JulianDate {
     public String toMetricDate() {
         long year = julianDate / 1000;
         long month = (julianDate - (year * 1000)) / 100;
-        long weeks = (julianDate - (year * 1000 + month * 100)) / 10;
-        long days = julianDate - (year * 1000 + month * 100 + weeks * 10);
+        long week = (julianDate - (year * 1000 + month * 100)) / 10;
+        long day = julianDate - (year * 1000 + month * 100 + week * 10);
 
-        return "";
+        return "Day " + day + ", Week " + week + ", Month " + month + ", Year " + year;
     }
 
     public long getJulianDate() {

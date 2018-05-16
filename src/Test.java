@@ -4,8 +4,11 @@ public class Test {
 
     public static void main(String[] args) {
         JulianDate date = new JulianDate(2018, 5, 16);
-        //System.out.println(date.weekday());
-        //System.out.println(date.toGregorianDate());
+        System.out.println(date.weekday());
+        System.out.println(date.toGregorianDate());
+        System.out.println(date.toMetricDate());
+
+        System.out.println();
 
         birthday(1997, 11, 2);
     }
@@ -14,7 +17,7 @@ public class Test {
         return false;
     }
 
-    public static void birthday(int year, int month, int day) {
+    private static void birthday(int year, int month, int day) {
         LocalDateTime today = LocalDateTime.now();
         JulianDate todayJulian = new JulianDate(today.getYear(), today.getMonthValue(), today.getDayOfMonth());
 
