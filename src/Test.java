@@ -10,7 +10,8 @@ public class Test {
 
         System.out.println();
 
-        birthday(1997, 11, 2);
+        birthday(1997, 10, 10);
+        birthday(1999, 01, 19);
     }
 
     public static boolean test() {

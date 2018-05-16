@@ -31,25 +31,7 @@ public class JulianDate {
 
     public Weekday weekday() {
         int weekdayNum = (int) (julianDate % 7);
-
-        switch (weekdayNum) {
-            case 0:
-                return Weekday.MONDAY;
-            case 1:
-                return Weekday.TUESDAY;
-            case 2:
-                return Weekday.WEDNESDAY;
-            case 3:
-                return Weekday.THURSDAY;
-            case 4:
-                return Weekday.FRIDAY;
-            case 5:
-                return Weekday.SATURDAY;
-            case 6:
-                return Weekday.SUNDAY;
-            default:
-                return Weekday.ERROR;
-        }
+        return Weekday.fromNumber(weekdayNum);
     }
 
     public String toGregorianDate() {

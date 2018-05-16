@@ -1,17 +1,19 @@
 public enum Weekday {
 
-    MONDAY("Monday"),
-    TUESDAY("Tuesday"),
-    WEDNESDAY("Wednesday"),
-    THURSDAY("Thursday"),
-    FRIDAY("Friday"),
-    SATURDAY("Saturday"),
-    SUNDAY("Sunday"),
-    ERROR("");
+    MONDAY(0, "Monday"),
+    TUESDAY(1, "Tuesday"),
+    WEDNESDAY(2, "Wednesday"),
+    THURSDAY(3, "Thursday"),
+    FRIDAY(4, "Friday"),
+    SATURDAY(5, "Saturday"),
+    SUNDAY(6, "Sunday"),
+    ERROR(-1, "");
 
-    private String name;
+    private final String name;
+    private final int number;
 
-    Weekday(String name) {
+    Weekday(int number, String name) {
+        this.number = number;
         this.name = name;
     }
 
@@ -19,4 +21,12 @@ public enum Weekday {
     public String toString() {
         return name;
     }
+
+    public static Weekday fromNumber(int number) {
+        for (Weekday w : Weekday.values()) {
+            if (w.number == number) return w;
+        }
+        return ERROR;
+    }
+
 }
