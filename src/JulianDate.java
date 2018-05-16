@@ -52,6 +52,27 @@ public class JulianDate {
         }
     }
 
+    public String toGregorianDate() {
+        long f = julianDate + 1401 + (((4 * julianDate + 274277) / 146097) * 3) / 4 -38;
+        long e = 4 * f + 3;
+        long g = e % 1461 / 4;
+        long h = 5 * g + 2;
+        long day = (h % 153) / 5 + 1;
+        long month = (h / 153 + 2) % 12 + 1;
+        long year = (e / 1461) - 4716 + (12 + 2 - month) / 12;
+
+        return ((day < 10) ? "0" : "") + day + "." + ((month < 10) ? "0" : "") + month + "." + year;
+    }
+
+    public String toMetricDate() {
+        long year = julianDate / 1000;
+        long month = (julianDate - (year * 1000)) / 100;
+        long weeks = (julianDate - (year * 1000 + month * 100)) / 10;
+        long days = julianDate - (year * 1000 + month * 100 + weeks * 10);
+
+        return "";
+    }
+
     public long getJulianDate() {
         return julianDate;
     }
