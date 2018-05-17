@@ -41,4 +41,15 @@ public class JulianDateTest {
     public void toMetricDate() {
         assertEquals(date.toMetricDate(), "Day 5, Week 5, Month 2, Year 2458");
     }
+
+    @Test
+    public void getJulianDate() {
+        assertEquals(date.getJulianDate(), 2458255);
+    }
+
+    @Test
+    public void setJulianDate() {
+        date.setJulianDate(42);
+        assertEquals(date.getJulianDate(), 42);
+    }
 }
