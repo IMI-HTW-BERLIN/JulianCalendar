@@ -2,10 +2,9 @@ public class JulianDate {
 
     //private final float daysPerYear = 365.2563604167F, daysPerMonth = 30.4380300347F;
     private long julianDate;
-    //private float julianDateF;
 
     public JulianDate(int year, int month, int day){
-        //julianDateF = (year + 4713) * daysPerYear + month * daysPerMonth + day;
+        //julianDate = (int) ((year + 4713) * daysPerYear + month * daysPerMonth + day);
         julianDate = (1461 * (year + 4800 + (month - 14)/12))/4 +(367 * (month - 2 - 12 * ((month - 14)/12)))/12 - (3 * ((year + 4900 + (month- 14)/12)/100))/4 + day - 32075;
     }
 
@@ -17,16 +16,14 @@ public class JulianDate {
         return julianDate-1;
     }
 
-    public static long daysBetween(JulianDate FirstDate, JulianDate SecondDate){
-        long delta = SecondDate.julianDate - FirstDate.julianDate;
+    public static long daysBetween(JulianDate firstDate, JulianDate secondDate){
+        long delta = secondDate.julianDate - firstDate.julianDate;
         if(delta  < 0) return -delta;
         return delta;
     }
 
-    public long daysBetween(JulianDate SecondDate){
-        long delta = SecondDate.julianDate - julianDate;
-        if(delta  < 0) return -delta;
-        return delta;
+    public long daysBetween(JulianDate secondDate){
+        return daysBetween(this, secondDate);
     }
 
     public Weekday weekday() {
