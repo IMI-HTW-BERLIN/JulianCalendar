@@ -11,11 +11,7 @@ public class Test {
         System.out.println();
 
         birthday(1997, 10, 10);
-        birthday(1999, 01, 19);
-    }
-
-    public static boolean test() {
-        return false;
+        birthday(1999, 1, 19);
     }
 
     private static void birthday(int year, int month, int day) {

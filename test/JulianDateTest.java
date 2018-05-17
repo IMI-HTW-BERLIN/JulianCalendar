@@ -9,7 +9,7 @@ public class JulianDateTest {
 
     @Before
     public void setUp() {
-        date = new JulianDate(2018, 05, 16);
+        date = new JulianDate(2018, 5, 16);
     }
 
     @Test
@@ -24,7 +24,7 @@ public class JulianDateTest {
 
     @Test
     public void daysBetween() {
-        assertEquals(date.daysBetween(new JulianDate(2018, 05, 10)), 6);
+        assertEquals(date.daysBetween(new JulianDate(2018, 5, 10)), 6);
     }
 
     @Test
