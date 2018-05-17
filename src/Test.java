@@ -12,6 +12,8 @@ public class Test {
 
         birthday(1997, 10, 10);
         birthday(1999, 1, 19);
+
+        System.out.println(isBirthdayToday(1999, 5, 17));
     }
 
     private static void birthday(int year, int month, int day) {
@@ -25,11 +27,20 @@ public class Test {
         System.out.println("You are " + ageInDays + " days old.");
         System.out.println("You were born on a " + birthday.weekday() + ".");
 
-        if (todayJulian.getJulianDate() == birthday.getJulianDate())
+        if (todayJulian.toGregorianDate().substring(0, 5).equals(birthday.toGregorianDate().substring(0, 5)))
             System.out.println("Happy birthday!");
 
         if (ageInDays % 100 == 0)
             System.out.println("You are " + ageInDays / 100 + " times 100 days old! Congratulations!");
+    }
+
+    public static boolean isBirthdayToday(int year, int month, int day) {
+        LocalDateTime today = LocalDateTime.now();
+        JulianDate todayJulian = new JulianDate(today.getYear(), today.getMonthValue(), today.getDayOfMonth());
+
+        JulianDate birthday = new JulianDate(year, month, day);
+
+        return todayJulian.toGregorianDate().substring(0, 5).equals(birthday.toGregorianDate().substring(0, 5));
     }
 
 }
