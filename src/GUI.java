@@ -13,6 +13,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.Arrays;
 
 public class GUI extends Application {
 
@@ -63,7 +64,11 @@ public class GUI extends Application {
 
             try {
                 int[] date = convertInput(txtDay.getText(), txtMonth.getText(), txtYear.getText());
-                checkBirthday(date[0], date[1], date[2]);
+                if(Arrays.stream(date).filter(x -> x > 0).toArray().length < 3 ||
+                        date[0] > 31 ||
+                        date[1] > 12){throw new NumberFormatException();}
+
+                else{checkBirthday(date[0], date[1], date[2]);}
             } catch (NumberFormatException e) {
                 lblError.setText("Please enter a valid date!");
                 boxLayout.getChildren().add(lblError);

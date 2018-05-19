@@ -13,43 +13,38 @@ public class JulianDateTest {
     }
 
     @Test
-    public void tomorrow() {
-        assertEquals(date.tomorrow() - date.getJulianDate(), 1);
+    public void tomorrow() { assertEquals(1,date.tomorrow() - date.getJulianDate());
     }
 
     @Test
-    public void yesterday() {
-        assertEquals(date.getJulianDate() - date.yesterday(), 1);
+    public void yesterday() { assertEquals(1, date.getJulianDate() - date.yesterday());
     }
 
     @Test
-    public void daysBetween() {
-        assertEquals(date.daysBetween(new JulianDate(2018, 5, 10)), 6);
+    public void daysBetween() { assertEquals(6, date.daysBetween(new JulianDate(2018, 5, 10)));
     }
 
     @Test
-    public void weekday() {
-        assertEquals(date.weekday(), Weekday.WEDNESDAY);
+    public void daysBetweenReverse() { assertEquals(6, date.daysBetween(new JulianDate(2018, 5, 22)));
     }
 
     @Test
-    public void toGregorianDate() {
-        assertEquals(date.toGregorianDate(), "16.05.2018");
+    public void weekday() { assertEquals(Weekday.WEDNESDAY, date.weekday());
     }
 
     @Test
-    public void toMetricDate() {
-        assertEquals(date.toMetricDate(), "Day 5, Week 5, Month 2, Year 2458");
+    public void toGregorianDate() { assertEquals("16.05.2018", date.toGregorianDate());
     }
 
     @Test
-    public void getJulianDate() {
-        assertEquals(date.getJulianDate(), 2458255);
+    public void toMetricDate() { assertEquals("Day 5, Week 5, Month 2, Year 2458", date.toMetricDate());
     }
 
     @Test
-    public void setJulianDate() {
-        date.setJulianDate(42);
-        assertEquals(date.getJulianDate(), 42);
+    public void getJulianDate() { assertEquals(2458255, date.getJulianDate());
+    }
+
+    @Test
+    public void setJulianDate() { date.setJulianDate(42); assertEquals(date.getJulianDate(), 42);
     }
 }

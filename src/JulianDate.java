@@ -16,6 +16,8 @@ public class JulianDate {
      * @param day The day of the date
      */
     public JulianDate(int year, int month, int day){
+        month = Math.abs(month);
+        day = Math.abs(day);
         //julianDate = (int) ((year + 4713) * daysPerYear + month * daysPerMonth + day);
         julianDate = (1461 * (year + 4800 + (month - 14)/12))/4 +(367 * (month - 2 - 12 * ((month - 14)/12)))/12 - (3 * ((year + 4900 + (month- 14)/12)/100))/4 + day - 32075;
     }
@@ -44,8 +46,9 @@ public class JulianDate {
      */
     public static long daysBetween(JulianDate firstDate, JulianDate secondDate){
         long delta = secondDate.julianDate - firstDate.julianDate;
-        if(delta  < 0) return -delta;
-        return delta;
+        return (delta < 0) ? -delta : delta;
+//        if(delta  < 0) return -delta;
+//        return delta;
     }
 
     /**
@@ -110,6 +113,7 @@ public class JulianDate {
      * @param julianDate The Julian Day Number to set the date to.
      */
     public void setJulianDate(long julianDate) {
-        this.julianDate = julianDate;
+        if(julianDate < 0) ; //needed?
+        else this.julianDate = julianDate;
     }
 }
