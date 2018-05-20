@@ -113,7 +113,7 @@ public class JulianDate {
      * @param julianDate The Julian Day Number to set the date to.
      */
     public void setJulianDate(long julianDate) {
-        if(julianDate < 0) ; //needed?
-        else this.julianDate = julianDate;
+        if(julianDate >= 0)
+            this.julianDate = julianDate;
     }
 }
