@@ -1,3 +1,5 @@
+import java.security.InvalidParameterException;
+
 /**
  * This class represents a Julian Date. It provides various methods to transform the date or to convert it into other date formats.
  * @author David Panagiotopulos
@@ -115,5 +117,7 @@ public class JulianDate {
     public void setJulianDate(long julianDate) {
         if(julianDate >= 0)
             this.julianDate = julianDate;
+        else
+            throw new InvalidParameterException("julianDate has to be a number greater that or equal to 0");
     }
 }
