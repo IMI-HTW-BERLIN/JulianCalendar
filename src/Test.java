@@ -47,11 +47,11 @@ public class Test {
         return todayJulian.toGregorianDate().substring(0, 5).equals(birthday.toGregorianDate().substring(0, 5));
     }
 
-    public static void aliveMetric(String name, JulianDate birthday){
+    public static String aliveMetric(JulianDate birthday){
         LocalDateTime today = LocalDateTime.now();
         JulianDate now = new JulianDate(today.getYear(), today.getMonthValue(), today.getDayOfMonth());
         birthday.setJulianDate(JulianDate.daysBetween(now, birthday));
-        System.out.println(name + ":\n" + birthday.toMetricDate());
+        return birthday.toMetricDate();
     }
 
 }
