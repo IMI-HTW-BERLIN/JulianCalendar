@@ -72,7 +72,7 @@ public class GUI extends Application {
                 }
 
                 else{checkBirthday(date[0], date[1], date[2]);}
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException | InvalidParameterException e) {
                 lblError.setText("Please enter a valid date!");
                 boxLayout.getChildren().add(lblError);
                 stage.sizeToScene();
