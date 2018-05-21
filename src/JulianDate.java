@@ -99,7 +99,7 @@ public class JulianDate {
         long week = (julianDate - (year * 1000 + month * 100)) / 10;
         long day = julianDate - (year * 1000 + month * 100 + week * 10);
 
-        return "Day " + day + ", Week " + week + ", Month " + month + ", Year " + year;
+        return "Day " + ++day + ", Week " + ++week + ", Month " + ++month + ", Year " + ++year;
     }
 
     /**
