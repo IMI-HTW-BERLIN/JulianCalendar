@@ -14,6 +14,10 @@ public class Test {
         birthday(1999, 1, 19);
 
         System.out.println(isBirthdayToday(1999, 5, 17));
+
+        System.out.println();
+        aliveMetric("David", new JulianDate(1997, 10, 10));
+        aliveMetric("Luis", new JulianDate(1999, 1, 1));
     }
 
     private static void birthday(int year, int month, int day) {
@@ -41,6 +45,13 @@ public class Test {
         JulianDate birthday = new JulianDate(year, month, day);
 
         return todayJulian.toGregorianDate().substring(0, 5).equals(birthday.toGregorianDate().substring(0, 5));
+    }
+
+    public static void aliveMetric(String name, JulianDate birthday){
+        LocalDateTime today = LocalDateTime.now();
+        JulianDate now = new JulianDate(today.getYear(), today.getMonthValue(), today.getDayOfMonth());
+        birthday.setJulianDate(JulianDate.daysBetween(now, birthday));
+        System.out.println(name + ":\n" + birthday.toMetricDate());
     }
 
 }
