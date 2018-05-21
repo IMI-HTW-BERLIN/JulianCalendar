@@ -14,10 +14,10 @@ public class Test {
         birthday(1999, 1, 19);
 
         System.out.println(isBirthdayToday(1999, 5, 17));
-
-        System.out.println();
-        aliveMetric("David", new JulianDate(1997, 10, 10));
-        aliveMetric("Luis", new JulianDate(1999, 1, 1));
+        System.out.println("David:");
+        System.out.println(aliveMetric(new JulianDate(1997, 10, 10)));
+        System.out.println("Luis:");
+        System.out.println(aliveMetric(new JulianDate(1999, 1, 19)));
     }
 
     private static void birthday(int year, int month, int day) {
