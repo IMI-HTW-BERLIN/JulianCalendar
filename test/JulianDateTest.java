@@ -1,5 +1,8 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.security.InvalidParameterException;
 
 import static org.junit.Assert.*;
 
@@ -35,6 +38,7 @@ public class JulianDateTest {
     @Test
     public void weekday() {
         assertEquals(Weekday.WEDNESDAY, date.weekday());
+        assertEquals("Wednesday", date.weekday().toString());
     }
 
     @Test
@@ -44,7 +48,7 @@ public class JulianDateTest {
 
     @Test
     public void toMetricDate() {
-        assertEquals("Day 5, Week 5, Month 2, Year 2458", date.toMetricDate());
+        assertEquals("Day 6, Week 6, Month 3, Year 2459", date.toMetricDate());
     }
 
     @Test
@@ -56,5 +60,10 @@ public class JulianDateTest {
     public void setJulianDate() {
         date.setJulianDate(42);
         assertEquals(42, date.getJulianDate());
+    }
+
+    @Test(expected = InvalidParameterException.class)
+    public void setJulianDateNegative() {
+        date.setJulianDate(-42);
     }
 }
